@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClenCare - Skincare Econômico</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos para a galeria de skincare */
+        .galeria {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .galeria img {
+            width: 300px;
+            border: 3px solid #333;
+            margin-bottom: 10px;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .step {
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .step img {
+            width: 100px;
+            height: 100px;
+            border: 2px solid transparent;
+        }
+        .step img:hover {
+            border-color: blue;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ClenCare</h1>
+        <nav>
+            <ul>
+                <li><a href="#skincare">Skincare Econômico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="skincare">
+        <h2>Rotina de Skincare Econômica</h2>
+
+        <!-- Imagem ampliada exibida -->
+        <div class="galeria">
+            <img id="imagemAmpliada" src="img/sabonete.png" alt="Imagem Ampliada">
+        </div>
+
+        <div class="steps">
+            <div class="step" onclick="mudarImagem('img/sabonete.png'); showDetails('step1')">
+                <h3>1. Limpeza com Sabonete Neutro</h3>
+                <img src="img/sabonete.png" alt="Sabonete Neutro">
+                <p>Limpe seu rosto com um sabonete neutro para remover impurezas e excesso de oleosidade.</p>
+                <div class="details" id="step1">
+                    <p>Escolha um sabonete sem fragrância e com pH balanceado para não irritar a pele.</p>
+                </div>
+            </div>
+            <div class="step" onclick="mudarImagem('img/tonico.png'); showDetails('step2')">
+                <h3>2. Tônico Facial</h3>
+                <img src="img/tonico.png" alt="Tônico Facial">
+                <p>Use um tônico para equilibrar o pH da pele e preparar para a hidratação.</p>
+                <div class="details" id="step2">
+                    <p>Opte por um tônico suave, ideal para a sua tipo de pele.</p>
+                </div>
+            </div>
+            <div class="step" onclick="mudarImagem('img/hidratante.png'); showDetails('step3')">
+                <h3>3. Hidratante</h3>
+                <img src="img/hidratante.png" alt="Hidratante">
+                <p>Aplique um hidratante para manter a pele macia e evitar ressecamento.</p>
+                <div class="details" id="step3">
+                    <p>Escolha um hidratante com ingredientes simples e econômicos, como glicerina.</p>
+                </div>
+            </div>
+            <div class="step" onclick="mudarImagem('img/protetor.png'); showDetails('step4')">
+                <h3>4. Protetor Solar</h3>
+                <img src="img/protetor.png" alt="Protetor Solar">
+                <p>Finalize com protetor solar para proteger sua pele dos danos solares.</p>
+                <div class="details" id="step4">
+                    <p>Um protetor solar com fator de proteção 30 já é suficiente para a maioria das pessoas.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Função para trocar a imagem ampliada
+        function mudarImagem(src) {
+            var imagemAmpliada = document.getElementById("imagemAmpliada");
+            imagemAmpliada.src = src; // Troca a imagem exibida na galeria
+        }
+
+        // Função para mostrar os detalhes da etapa
+        function showDetails(stepId) {
+            var steps = document.querySelectorAll('.details');
+            steps.forEach(function(step) {
+                step.style.display = 'none'; // Oculta todos os detalhes
+            });
+            document.getElementById(stepId).style.display = 'block'; // Mostra apenas o detalhe clicado
+        }
+    </script>
+</body>
+</html>
